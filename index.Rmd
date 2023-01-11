@@ -7,6 +7,10 @@ output:
 output_dir: libs      
 ---
 
+```{r setup}
+# Step 1. load dataset ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/EC/9.geocoded_dataset/triatoma_31_yucatan_2016_2020.RData")
+```
 
 
 # **Enfermedad de Chagas**
@@ -14,6 +18,29 @@ output_dir: libs
 ## Column {.tabset}
 
 ### [**Muestras Positivas & Negativas**]{style="color:#990000"}
+
+```{r}
+
+# Step 1. Convert the df to df ####
+y <- y |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326)
+
+# Step 2. T. dimidiata negative & positive T. dimidiata  map ###
+mapview::mapview(y |> dplyr::filter(POSITIVO == 0),
+                 alpha.regions = .8,
+                 color = "white",
+                 lwd = .5,
+                 layer.name = "Triatoma dimidiata -",
+                 col.regions = "#36C5F0") +
+    mapview::mapview(y |> dplyr::filter(POSITIVO != 0),
+                     alpha.regions = .8,
+                     color = "white",
+                     lwd = .5,
+                     layer.name = "Triatoma dimidiata +",
+                     col.regions = "#E01E5A")
+```
+
 
 # **Triatoma huehuetenangensis**
 # **Reservorios Silvestres**
