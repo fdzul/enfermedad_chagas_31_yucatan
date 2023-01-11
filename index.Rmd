@@ -1,0 +1,22 @@
+---
+title: "Programa de Prevención y Control de la Enfermedad de Chagas de Yucatán"
+output: 
+  flexdashboard::flex_dashboard:
+      theme: united
+      social: ["twitter", "facebook", "menu", "github"]
+output_dir: libs      
+---
+
+
+
+# **Enfermedad de Chagas**
+# **Triatoma dimidiata**
+## Column {.tabset}
+
+### [**Muestras Positivas & Negativas**]{style="color:#990000"}
+
+# **Triatoma huehuetenangensis**
+# **Reservorios Silvestres**
+
+
+
